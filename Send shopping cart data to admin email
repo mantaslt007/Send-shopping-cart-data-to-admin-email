@@ -1,0 +1,24 @@
+Hi. Fist of all sorry for my bad English.
+I'm using shopping cart plugin for my website :
+https://www.jqueryscript.net/layout/Responsive-E-commerce-Shopping-Cart-Plugin-with-jQuery-Shopping-Mall.html
+
+Everything is working fine except sending email to admin (in mail have to by information about sender and all shopping cart data).
+So please help me i have cartform.php whit this code but i understand it's 
+not enough to send email.
+
+By the way i'm form Lithuania :)
+
+<?php
+if (isset($_POST['submit'])) {
+  $name = $_POST['name'];
+  $mailForm = $_POST['mail'];
+  $message = $_POST['message'];
+  $cartList = $_POST['cartlist'];
+
+  $mailTo = "info@ledinukas.lt";
+  $headers = "Užsakymas išsiųstas iš svetainės: ".$mailForm;
+  $txt = "Gavote žinutę iš ".$name.".\n\n".$message;
+  $order = "Užsakymas: ".".\n\n".$cartList;
+  mail($mailTo, $txt, $headers, $order);
+  header("Location: index.html?užklausa-išsiųsta");
+}
